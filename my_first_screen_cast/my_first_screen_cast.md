@@ -57,7 +57,7 @@ docker run -it asciinema/asciinema bash
 ```
 asciinema auth
 ```
-![asciinema_auth](https://github.com/GMS6804-master/GMS6804-archive/blob/main/docker-container/images/asciinema_auth.png)
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/docker-container/images/asciinema_auth.png)
 <!-- blank line -->
 ----
 <!-- blank line -->
@@ -66,7 +66,7 @@ asciinema auth
 ```
 asciinema rec
 ```
-![asciinema_auth](https://github.com/GMS6804-master/GMS6804-archive/blob/main/docker-container/images/asciinema_rec.png)
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/docker-container/images/asciinema_rec.png)
 <!-- blank line -->
 ----
 <!-- blank line -->
@@ -86,7 +86,7 @@ asciinema rec
 ***CTRL+D*** or ***CTRL+C*** to stop recording
 ***ENTER*** or ***CTRL+C*** to stop recording
 
-![asciinema_auth](https://github.com/GMS6804-master/GMS6804-archive/blob/main/docker-container/images/asciinema_stop.png)
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/docker-container/images/asciinema_stop.png)
 <!-- blank line -->
 ----
 <!-- blank line -->
@@ -97,11 +97,11 @@ asciinema rec
 exit
 ```
 
-![asciinema_auth](https://github.com/GMS6804-master/GMS6804-archive/blob/main/docker-container/images/asciinema_exit.png)
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/docker-container/images/asciinema_exit.png)
 <!-- blank line -->
 ----
 <!-- blank line -->
 
-### example screen-cast
+### 9. example screen-cast
 
 [![asciicast](https://asciinema.org/a/453642.svg)](https://asciinema.org/a/453642?t=5)
