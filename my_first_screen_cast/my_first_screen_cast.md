@@ -8,7 +8,7 @@ This assignment walks you through creating a screen-cast via asciinema and docke
  - pull a [asciinema docker image](https://hub.docker.com/r/asciinema/asciinema/) from DockerHub
  - run the asciinema/asciinema container via docker
  - create a screen-cast recording
- - upload your recording to asciinema.org.
+ - upload your recording to asciinema.org
  
  ## Assignment 
 1. Complete the assignment described below.
@@ -31,7 +31,7 @@ This assignment walks you through creating a screen-cast via asciinema and docke
 ## Getting Started
 ### 1. open docker teminal
 
-![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/my_first_screen_cast/images/terminal_start.png)
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/images/terminal_start.png)
 <!-- blank line -->
 ----
 <!-- blank line -->
@@ -45,32 +45,24 @@ docker pull asciinema/asciinema
 ----
 <!-- blank line -->
 
-### 3. create a docker container from the image and boot in using bash
+### 3.  create a docker container and start screen-cast recording
 ```
-docker run -it asciinema/asciinema bash
+docker run -it asciinema/asciinema rec
 ```
 <!-- blank line -->
 ----
 <!-- blank line -->
 
-### 4. link your container to your asciinema.org account
+### 4. link your container to your asciinema.org account by opening the URL in a web browser 
 ```
 asciinema auth
 ```
-![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/my_first_screen_cast/images/asciinema_auth.png)
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/images/asciinema_auth.png)
 <!-- blank line -->
 ----
 <!-- blank line -->
 
-### 5. start your screen-cast recording 
-```
-asciinema rec
-```
-![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/my_first_screen_cast/images/asciinema_rec.png)
-<!-- blank line -->
-----
-<!-- blank line -->
-### 6. type your first screen-cast recording
+### 6. create your first screen-cast recording
 ```
 # hello translational bioinformatics!
 # my name is [your-name-here]
@@ -86,7 +78,7 @@ asciinema rec
 ***CTRL+D*** or ***CTRL+C*** to stop recording
 ***ENTER*** or ***CTRL+C*** to stop recording
 
-![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/my_first_screen_cast/images/asciinema_stop.png)
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/images/asciinema_stop.png)
 <!-- blank line -->
 ----
 <!-- blank line -->
@@ -97,7 +89,7 @@ asciinema rec
 exit
 ```
 
-![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/my_first_screen_cast/images/asciinema_exit.png)
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/images/asciinema_exit.png)
 <!-- blank line -->
 ----
 <!-- blank line -->
