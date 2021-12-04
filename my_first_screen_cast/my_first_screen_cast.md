@@ -31,7 +31,7 @@ This assignment walks you through creating a screen-cast via asciinema and docke
 ## Getting Started
 ### 1. open docker teminal
 
-![asciinema_auth](https://github.com/GMS6804-master/GMS6804-archive/blob/main/docker-container/images/terminal_start.png)
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/my_first_screen_cast/images/terminal_start.png)
 <!-- blank line -->
 ----
 <!-- blank line -->
