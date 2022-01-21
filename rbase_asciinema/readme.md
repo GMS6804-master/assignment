@@ -98,6 +98,8 @@ asciinema auth
 R
 # exit R
 quit()
+# exit container 
+ctr-d
 ```
 <!-- blank line -->
 ----
