@@ -6,7 +6,7 @@ This assignment walks you through modifying an [r-base docker image](https://hub
 <!-- blank line -->
 ## Learning Objectives:
  - pull a [r-base docker image](https://hub.docker.com/_/r-base?tab=description) from DockerHub
- - download assignment/rbase_asciinema repository from Github
+ - download ~/assignment/rbase_asciinema repository from Github
  - run the r-base container via docker
  - create a new container that modifies the r-base image using a dockerfile 
  - save new docker container to dockerhub
