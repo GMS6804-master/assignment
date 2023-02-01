@@ -19,8 +19,8 @@ This assignment walks you through modifying an [r-base docker image](https://hub
 ### Prerequisites
 * create an asciinema account using email at [asccinema.org](https://asciinema.org/login/new) 
 * create a [dockerhub account](https://hub.docker.com/)
-* download the ~/assignments/ GitHub repository. 
-* navigate to the directory: ~/assignments/build_rbase_asciinema
+* download the ~/assignments/ GitHub repository. help on downloading files from [GitHub](https://www.gitkraken.com/learn/git/github-download)
+* navigate to the directory: ~/assignments/build_rbase_asciinema. help on changing directories for [Windows](https://www.lifewire.com/change-directories-in-command-prompt-5185508) and [Apple](https://www.macworld.com/article/221277/command-line-navigating-files-folders-mac-terminal.html) 
 <!-- blank line -->
 ----
 <!-- blank line -->
