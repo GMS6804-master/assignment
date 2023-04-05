@@ -13,7 +13,7 @@ RUN R -e 'BiocManager::install(ask = F)' && R -e 'BiocManager::install(c("DESeq2
 RUN R -e 'BiocManager::install(ask = F)' && R -e 'BiocManager::install(c("vsn", \
     "Gviz", "pheatmap", "PoiClaClu", "genefilter", "IHW", "org.Hs.eg.db", \
 	"ReportingTools", "sva", "RUVSeq", "fission", \
-	"glmpca", "ggbeeswarm", "apeglm", ask = F))' \
+	"glmpca", "ggbeeswarm", "apeglm", ask = F))' 
 
 ### Install asciinema
 RUN apt-get install -y  \
