@@ -1,112 +1,21 @@
-# https://www.bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html
+# General Assignment Guidelines
 
-
-# build bioconductor_rnaseq docker image
-
-This assignment walks you through modifying an [bioconductor docker images](https://hub.docker.com/r/bioconductor/bioconductor_docker) by installing a variety of bioconductor packages as well as [asciinema](https://asciinema.org/docs/installation) and saving the new docker image to dockerhub. [asciinema](https://asciinema.org/about) is a free and open source solution for recording terminal sessions and sharing them on the web. [Docker](https://www.docker.com/resources/what-container) is tool that packages software into self-contained computing environments, called containers. [Docker Hub](https://www.docker.com/products/docker-hub) is a hosted repository service provided by Docker for finding and sharing container images with others.
-
-<!-- blank line -->
-----
-<!-- blank line -->
-
-## Learning Objectives:
- - pull a [bioconductor docker image](https://hub.docker.com/r/bioconductor/bioconductor_docker) from DockerHub
- - run the bioconductor/bioconductor_docker container via docker
- - install asciinema via CLI
- - save changes to a new docker image
- - push the new docker image to dockerhub
- 
-  ## Assignment 
-1. Complete the assignment described below.
-2. Upload a link to your dockerhub account.
-3. Upload a link with screen-cast.
+## Assignments
+* [my-first-screen-cast](https://github.com/GMS6804-master/assignment/blob/main/my_first_screen_cast/my_first_screen_cast.md)
 
 ### Prerequisites
-* create an asciinema account using email at [asccinema.org](https://asciinema.org/login/new) 
-* create a [dockerhub account](https://hub.docker.com/)
-* navigate to the directory: ~/assignments/bioconductor_asciinema
-<!-- blank line -->
-----
-<!-- blank line -->
+You will need to be comfortable with the following:
+* You have installed docker, github-desktop and rstudio.
+* You can pull from and push to GitHub from RStudio.
+* You’ve taken possession of the course github repository.
 
- ### Assignment Points
-|  Rubric        | Points | 
-|----------------|-------|
-| Dockerhub     |  -/5  |
-| Screencast     |  -/5  |
-| On Time        |  -/5  |
-*Total Points: -/10*
+### Twitter
+I will use the @GMS6804 Twitter account to make micro-announcements, share interesting links, and facilitate a conversation amongst ourselves in public. I strongly encourage you to create a disposable account if for any reason you prefer not to share your personal account for classroom activities. Your participation on twitter will be part of your grade. In class, we talk about Twitter, its scholarly use, and privacy. Some relevant links:
 
-## Getting Started
+* [Disposable Twitter Accounts for Classroom Use](https://www.chronicle.com/blogs/profhacker/disposable-twitter-accounts-for-classroom-use)
+* [Resources for exploring digital identity, privacy and authenticity](https://catherinecronin.wordpress.com/2012/02/29/525/)
+ 
+### Resources Used
 
-### 1. open docker teminal
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 2. create a new container that installs asciinema using a dockerfile
-```
-docker build -t bioconductor_asciinema .
-```
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 3. boot into the new docker container 
-```
-docker run -it bioconductor_asciinema:latest bash
-```
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 4. start a screen-cast from within the container 
-```
-asciinema rec
-```
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 5. link your container to your asciinema.org account by opening the URL in a web browser 
-```
-asciinema auth
-```
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 6. add screen-cast headers and check your docker container
-```
-# GMS6804
-# name: [your-name-here]
-# date: [current-date]
-# semester: [current-semester]
-# assignment: build bioconductor-asciinema  
-
-# check if R is installed?
-R
-# exit R
-quit()
-```
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 7. login to dockerhub
-```
-docker login
-login: [YOUR DOCKERHUB ID]
-pwd: [YOUR PASSWORD]
-```
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 8. tag container
-```
-docker tag bioconductor_asciinema [YOUR DOCKERHUB ID]/bioconductor_asciinema:[month_year]
-docker push [YOUR DOCKERHUB ID]/bioconductor_asciinema:[month_year]
-```
-
-### 9. example screen-cast
+- Random choices from lists: https://docs.python.org/2/library/random.html#random.choice
+- template: https://github.com/biomed-bioinformatics-bootcamp/BMES-T580-2019/blob/master/Module02/Readme.md
