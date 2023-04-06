@@ -89,7 +89,9 @@ R
 
 ### 7. Start the Tutorial at 2.3 [Reading in data with tximeta](https://www.bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html)
 
-create the ![first plot](https://github.com/GMS6804-master/assignment/blob/main/images/meanSdPlot_v1.png)
+create the first plot in the tutorial 
+
+ ![first plot](https://github.com/GMS6804-master/assignment/blob/main/images/meanSdPlot_v1.png)
 
 ``` 
 library("airway")
