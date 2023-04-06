@@ -87,15 +87,9 @@ R
 ----
 <!-- blank line -->
 
-### 7. Start the Tutorial at 2.3 [Reading in data with tximeta](https://www.bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html)
+### 7. Start the Tutorial at 2.3 Reading in data with tximeta
 
-create the first plot in the tutorial using the following code:
-```
-png(filename = "meanSdPlot_v1.png");meanSdPlot(cts, ranks = FALSE);dev.off()
-log.cts.one <- log2(cts + 1)
-```
 
- ![first plot](https://github.com/GMS6804-master/assignment/blob/main/images/meanSdPlot_v1.png)
 
 ``` 
 library("airway")
@@ -162,6 +156,15 @@ ddsMat <- DESeqDataSetFromMatrix(countData = countdata,
 ----
 <!-- blank line -->
 ### 10. (4) Exploratory analysis and visualization
+
+You can create the first plot in the tutorial using the following code:
+```
+png(filename = "meanSdPlot_v1.png");meanSdPlot(cts, ranks = FALSE);dev.off()
+log.cts.one <- log2(cts + 1)
+```
+
+ ![first plot](https://github.com/GMS6804-master/assignment/blob/main/images/meanSdPlot_v1.png)
+
 ```
 nrow(dds)
 keep <- rowSums(counts(dds)) > 1
