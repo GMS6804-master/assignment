@@ -18,3 +18,6 @@ RUN R -e 'BiocManager::install(ask = F)' && R -e 'BiocManager::install(c("vsn", 
 ### Install asciinema
 RUN apt-get install -y  \
 asciinema 
+
+### Set Working Directory
+WORKDIR /project

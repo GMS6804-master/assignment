@@ -1,4 +1,4 @@
-# Bioconductor-RNA-seq: RNA-seq workflow: gene-level exploratory analysis and differential expression
+# bioconductor_rnaseq: RNA-seq workflow: gene-level exploratory analysis and differential expression
 
 In this tutorial, we use a [bioconductor docker image](https://www.bioconductor.org/help/docker/) that includes [asciinema](https://asciinema.org/) functionality to run the [RNA-seq tutorial](https://www.bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html). Here we walk through an end-to-end gene-level RNA-seq differential expression workflow using Bioconductor packages. We will start from the FASTQ files, show how these were quantified to the reference transcripts, and prepare gene-level count datasets for downstream analysis. We will perform exploratory data analysis (EDA) for quality assessment and to explore the relationship between samples, perform differential gene expression analysis, and visually explore the results.
 
@@ -48,7 +48,9 @@ docker pull dominicklemas/bioconductor_rnaseq:04_2023
 ```
 docker run -it -v [path-to-working-directory]:/data dominicklemas/bioconductor_rnaseq:04_2023 bash
 
-example: docker run -it -v c:/Users/djlemas/Documents/rna-seq:/data dominicklemas/bioconductor_rnaseq:04_2023 bash
+C:\Users\djlemas\OneDrive\Documents\rna-seq
+
+example: docker run -it -v C:/Users/djlemas/OneDrive/Documents/rna-seq:/project dominicklemas/bioconductor_rnaseq:04_2023 bash
 ```
 <!-- blank line -->
 ----
@@ -155,10 +157,11 @@ nrow(dds)
 keep <- rowSums(counts(dds) >= 10) >= 3
 lambda <- 10^seq(from = -1, to = 2, length = 1000)
 cts <- matrix(rpois(1000*100, lambda), ncol = 100)
+
 library("vsn")
-meanSdPlot(cts, ranks = FALSE)
+png(filename = "meanSdPlot_v1.png");meanSdPlot(cts, ranks = FALSE);dev.off()
 log.cts.one <- log2(cts + 1)
-meanSdPlot(log.cts.one, ranks = FALSE)
+png(filename = "meanSdPlot_v2.png"); meanSdPlot(log.cts.one, ranks = FALSE);dev.off()
 vsd <- vst(dds, blind = FALSE)
 head(assay(vsd), 3)
 colData(vsd)
@@ -175,9 +178,11 @@ df <- bind_rows(
 colnames(df)[1:2] <- c("x", "y")  
 lvls <- c("log2(x + 1)", "vst", "rlog")
 df$transformation <- factor(df$transformation, levels=lvls)
-ggplot(df, aes(x = x, y = y)) + geom_hex(bins = 80) +
+
+png(filename = "ggplot_v1.png");ggplot(df, aes(x = x, y = y)) + geom_hex(bins = 80) +
   coord_fixed() + facet_grid( . ~ transformation)  
-  sampleDists <- dist(t(assay(vsd)))
+  sampleDists <- dist(t(assay(vsd)));dev.off()
+
 sampleDists
 library("pheatmap")
 library("RColorBrewer")
@@ -185,44 +190,57 @@ sampleDistMatrix <- as.matrix( sampleDists )
 rownames(sampleDistMatrix) <- paste( vsd$dex, vsd$cell, sep = " - " )
 colnames(sampleDistMatrix) <- NULL
 colors <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
-pheatmap(sampleDistMatrix,
+
+png(filename = "pheatmap_v1.png"); pheatmap(sampleDistMatrix,
          clustering_distance_rows = sampleDists,
          clustering_distance_cols = sampleDists,
-         col = colors)
+         col = colors); dev.off()
+
 library("PoiClaClu")
 poisd <- PoissonDistance(t(counts(dds)))
 samplePoisDistMatrix <- as.matrix( poisd$dd )
 rownames(samplePoisDistMatrix) <- paste( dds$dex, dds$cell, sep=" - " )
 colnames(samplePoisDistMatrix) <- NULL
-pheatmap(samplePoisDistMatrix,
+
+png(filename = "pheatmap_v2.png"); pheatmap(samplePoisDistMatrix,
          clustering_distance_rows = poisd$dd,
          clustering_distance_cols = poisd$dd,
-         col = colors)
-plotPCA(vsd, intgroup = c("dex", "cell"))
-pcaData <- plotPCA(vsd, intgroup = c( "dex", "cell"), returnData = TRUE)
+         col = colors); dev.off()		 
+
+png(filename = "pcaplot_v1.png"); plotPCA(vsd, intgroup = c("dex", "cell")); dev.off()
+
+png(filename = "pcaplot_v2.png");pcaData <- plotPCA(vsd, intgroup = c( "dex", "cell"), returnData = TRUE); dev.off()
+
 pcaData
 percentVar <- round(100 * attr(pcaData, "percentVar"))
-ggplot(pcaData, aes(x = PC1, y = PC2, color = dex, shape = cell)) +
+
+png(filename = "ggplot_v2.png");ggplot(pcaData, aes(x = PC1, y = PC2, color = dex, shape = cell)) +
   geom_point(size =3) +
   xlab(paste0("PC1: ", percentVar[1], "% variance")) +
   ylab(paste0("PC2: ", percentVar[2], "% variance")) +
   coord_fixed() +
-  ggtitle("PCA with VST data")
+  ggtitle("PCA with VST data"); dev.off()
+
 library("glmpca")
 gpca <- glmpca(counts(dds), L=2)
 gpca.dat <- gpca$factors
 gpca.dat$dex <- dds$dex
 gpca.dat$cell <- dds$cell
-ggplot(gpca.dat, aes(x = dim1, y = dim2, color = dex, shape = cell)) +
-  geom_point(size =3) + coord_fixed() + ggtitle("glmpca - Generalized PCA")
+
+png(filename = "ggplot_v3.png"); ggplot(gpca.dat, aes(x = dim1, y = dim2, color = dex, shape = cell)) +
+  geom_point(size =3) + coord_fixed() + ggtitle("glmpca - Generalized PCA"); dev.off()
+
 mds <- as.data.frame(colData(vsd))  %>%
          cbind(cmdscale(sampleDistMatrix))
-ggplot(mds, aes(x = `1`, y = `2`, color = dex, shape = cell)) +
-  geom_point(size = 3) + coord_fixed() + ggtitle("MDS with VST data")
+
+png(filename = "ggplot_v4.png"); ggplot(mds, aes(x = `1`, y = `2`, color = dex, shape = cell)) +
+  geom_point(size = 3) + coord_fixed() + ggtitle("MDS with VST data"); dev.off()
+  
 mdsPois <- as.data.frame(colData(dds)) %>%
    cbind(cmdscale(samplePoisDistMatrix))
-ggplot(mdsPois, aes(x = `1`, y = `2`, color = dex, shape = cell)) +
-  geom_point(size = 3) + coord_fixed() + ggtitle("MDS with PoissonDistances")
+
+png(filename = "ggplot_v5.png"); ggplot(mdsPois, aes(x = `1`, y = `2`, color = dex, shape = cell)) +
+  geom_point(size = 3) + coord_fixed() + ggtitle("MDS with PoissonDistances"); dev.off()
 ```
 <!-- blank line -->
 ----
@@ -255,41 +273,56 @@ head(resSig[ order(resSig$log2FoldChange, decreasing = TRUE), ])
 ### 12. (6) Plotting Results
 ```
 topGene <- rownames(res)[which.min(res$padj)]
-plotCounts(dds, gene = topGene, intgroup=c("dex"))
+
+png(filename = "plotCounts_v1.png");plotCounts(dds, gene = topGene, intgroup=c("dex")); dev.off()
+
 library("ggbeeswarm")
 geneCounts <- plotCounts(dds, gene = topGene, intgroup = c("dex","cell"),
                          returnData = TRUE)
-ggplot(geneCounts, aes(x = dex, y = count, color = cell)) +
-  scale_y_log10() +  geom_beeswarm(cex = 3)
-ggplot(geneCounts, aes(x = dex, y = count, color = cell, group = cell)) +
-  scale_y_log10() + geom_point(size = 3) + geom_line()
+
+png(filename = "ggplot_v6.png");ggplot(geneCounts, aes(x = dex, y = count, color = cell)) +
+  scale_y_log10() +  geom_beeswarm(cex = 3); dev.off()
+
+png(filename = "ggplot_v7.png"); ggplot(geneCounts, aes(x = dex, y = count, color = cell, group = cell)) +
+  scale_y_log10() + geom_point(size = 3) + geom_line(); dev.off()
+
 library("apeglm")
 resultsNames(dds)
 res <- lfcShrink(dds, coef="dex_trt_vs_untrt", type="apeglm")
-plotMA(res, ylim = c(-5, 5))
+
+png(filename = "plotMA_v1.png"); plotMA(res, ylim = c(-5, 5)); dev.off()
+
 res.noshr <- results(dds, name="dex_trt_vs_untrt")
-plotMA(res.noshr, ylim = c(-5, 5))
-plotMA(res, ylim = c(-5,5))
+png(filename = "plotMA_v2.png"); plotMA(res.noshr, ylim = c(-5, 5)); dev.off()
+png(filename = "plotMA_v3.png");plotMA(res, ylim = c(-5,5)); dev.off()
+
+png(filename = "hist_v1.png");
 topGene <- rownames(res)[which.min(res$padj)]
 with(res[topGene, ], {
   points(baseMean, log2FoldChange, col="dodgerblue", cex=2, lwd=2)
   text(baseMean, log2FoldChange, topGene, pos=2, col="dodgerblue")
 })
 hist(res$pvalue[res$baseMean > 1], breaks = 0:20/20,
-     col = "grey50", border = "white")
-	 library("genefilter")
+     col = "grey50", border = "white"); dev.off()
+
+library("genefilter")
 topVarGenes <- head(order(rowVars(assay(vsd)), decreasing = TRUE), 20)
 mat  <- assay(vsd)[ topVarGenes, ]
 mat  <- mat - rowMeans(mat)
 anno <- as.data.frame(colData(vsd)[, c("cell","dex")])
-pheatmap(mat, annotation_col = anno)
+
+png(filename = "pheatmap_v3.png");pheatmap(mat, annotation_col = anno); dev.off()
+
 qs <- c(0, quantile(resLFC1$baseMean[resLFC1$baseMean > 0], 0:6/6))
 bins <- cut(resLFC1$baseMean, qs)
 levels(bins) <- paste0("~", round(signif((qs[-1] + qs[-length(qs)])/2, 2)))
 fractionSig <- tapply(resLFC1$pvalue, bins, function(p)
                           mean(p < .05, na.rm = TRUE))
+						  
+png(filename = "barplot_v1.png");						  
 barplot(fractionSig, xlab = "mean normalized count",
-                     ylab = "fraction of small p values")
+                     ylab = "fraction of small p values"); dev.off()
+					 
 library("IHW")
 res.ihw <- results(dds, filterFun=ihw)					 
 ```
@@ -318,11 +351,13 @@ head(resOrdered)
 resOrderedDF <- as.data.frame(resOrdered)[1:100, ]
 write.csv(resOrderedDF, file = "results.csv")		
 library("ReportingTools")
+
 htmlRep <- HTMLReport(shortName="report", title="My report",
                       reportDirectory="./report")
 publish(resOrderedDF, htmlRep)
 url <- finish(htmlRep)
 browseURL(url)	
+
 resGR <- lfcShrink(dds, coef="dex_trt_vs_untrt", type="apeglm", format="GRanges")
 resGR	
 ens.str <- substr(names(resGR), 1, 15)
@@ -340,8 +375,10 @@ g <- GenomeAxisTrack()
 a <- AnnotationTrack(resGRsub, name = "gene ranges", feature = status)
 d <- DataTrack(resGRsub, data = "log2FoldChange", baseline = 0,
                type = "h", name = "log2 fold change", strand = "+")
+
+png(filename = "plotTracks_v1.png");	
 plotTracks(list(g, d, a), groupAnnotation = "group",
-           notsig = "grey", sig = "hotpink")
+           notsig = "grey", sig = "hotpink"); dev.off()
 ```
 <!-- blank line -->
 ----
@@ -401,10 +438,12 @@ head(resTC[order(resTC$padj),], 4)
 fiss <- plotCounts(ddsTC, which.min(resTC$padj), 
                    intgroup = c("minute","strain"), returnData = TRUE)
 fiss$minute <- as.numeric(as.character(fiss$minute))
-ggplot(fiss,
+
+png(filename = "ggplot_v8.png");ggplot(fiss,
   aes(x = minute, y = count, color = strain, group = strain)) + 
   geom_point() + stat_summary(fun.y=mean, geom="line") +
-  scale_y_log10()
+  scale_y_log10(); dev.off()
+  
  resultsNames(ddsTC)
 res30 <- results(ddsTC, name="strainmut.minute30", test="Wald")
 res30[which.min(res30$padj),]
@@ -415,8 +454,10 @@ mat <- betas[topGenes, -c(1,2)]
 thr <- 3 
 mat[mat < -thr] <- -thr
 mat[mat > thr] <- thr
+
+png(filename = "pheatmap_v4.png");
 pheatmap(mat, breaks=seq(from=-thr, to=thr, length=101),
-         cluster_col=FALSE)
+         cluster_col=FALSE); dev.off()
 ```
 <!-- blank line -->
 ----
