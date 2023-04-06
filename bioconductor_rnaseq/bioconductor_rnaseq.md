@@ -79,19 +79,10 @@ asciinema rec
 ----
 <!-- blank line -->
 
-### 6. start R 
+### 6. start R, and begin the tutorial at 2.3 Reading in data with tximeta
 ```
 R
-```
-<!-- blank line -->
-----
-<!-- blank line -->
 
-### 7. Start the Tutorial at 2.3 Reading in data with tximeta
-
-
-
-``` 
 library("airway")
 dir <- system.file("extdata", package="airway", mustWork=TRUE)
 list.files(dir)
@@ -110,51 +101,13 @@ head(rownames(se))
 gse <- summarizeToGene(se)
 dim(gse)
 head(rownames(gse))
+
 ```
 <!-- blank line -->
 ----
 <!-- blank line -->
 
-### 8. (2.5) SummarizedExperiment
-```
-library("DESeq2")
-data(gse)
-gse
-assayNames(gse)
-head(assay(gse), 3)
-colSums(assay(gse))
-rowRanges(gse)
-seqinfo(rowRanges(gse))
-colData(gse)
-```
-<!-- blank line -->
-----
-<!-- blank line -->
 
-### 9. (3) The DESeqDataSet object, sample information and the design formula
-```
-gse$donor
-gse$condition
-gse$cell <- gse$donor
-gse$dex <- gse$condition
-levels(gse$dex)
-levels(gse$dex) <- c("untrt", "trt")
-library("magrittr")
-gse$dex %<>% relevel("untrt")
-gse$dex
-gse$dex <- relevel(gse$dex, "untrt")
-library("DESeq2")
-dds <- DESeqDataSet(gse, design = ~ cell + dex)
-countdata <- round(assays(gse)[["counts"]])
-head(countdata, 3)
-coldata <- colData(gse)
-ddsMat <- DESeqDataSetFromMatrix(countData = countdata,
-                                 colData = coldata,
-                                 design = ~ cell + dex)
-```
-<!-- blank line -->
-----
-<!-- blank line -->
 ### 10. (4) Exploratory analysis and visualization
 
 You can create the first plot in the tutorial using the following code:
