@@ -18,8 +18,8 @@ This assignment walks you through modifying an [bioconductor docker images](http
  
   ## Assignment 
 1. Complete the assignment described below.
-2. Upload a link to your dockerhub account.
-3. Upload a link with screen-cast.
+2. Upload the link to your dockerhub account.
+
 
 ### Prerequisites
 * create an asciinema account using email at [asccinema.org](https://asciinema.org/login/new) 
@@ -33,7 +33,6 @@ This assignment walks you through modifying an [bioconductor docker images](http
 |  Rubric        | Points | 
 |----------------|-------|
 | Dockerhub     |  -/5  |
-| Screencast     |  -/5  |
 | On Time        |  -/5  |
 *Total Points: -/10*
 
@@ -52,7 +51,7 @@ docker build -t bioconductor_asciinema .
 ----
 <!-- blank line -->
 
-### 3. boot into the new docker container 
+### 3. test your the new docker container 
 ```
 docker run -it bioconductor_asciinema:latest bash
 ```
@@ -60,40 +59,7 @@ docker run -it bioconductor_asciinema:latest bash
 ----
 <!-- blank line -->
 
-### 4. start a screen-cast from within the container 
-```
-asciinema rec
-```
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 5. link your container to your asciinema.org account by opening the URL in a web browser 
-```
-asciinema auth
-```
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 6. add screen-cast headers and check your docker container
-```
-# GMS6804
-# name: [your-name-here]
-# date: [current-date]
-# semester: [current-semester]
-# assignment: build bioconductor-asciinema  
-
-# check if R is installed?
-R
-# exit R
-quit()
-```
-<!-- blank line -->
-----
-<!-- blank line -->
-
-### 7. login to dockerhub
+### 4. login to dockerhub
 ```
 docker login
 login: [YOUR DOCKERHUB ID]
@@ -103,10 +69,15 @@ pwd: [YOUR PASSWORD]
 ----
 <!-- blank line -->
 
-### 8. tag container
+### 5. tag container
 ```
 docker tag bioconductor_asciinema [YOUR DOCKERHUB ID]/bioconductor_asciinema:[month_year]
+```
+<!-- blank line -->
+----
+<!-- blank line -->
+
+### 6. push to DockerHub
+```
 docker push [YOUR DOCKERHUB ID]/bioconductor_asciinema:[month_year]
 ```
-
-### 9. example screen-cast
