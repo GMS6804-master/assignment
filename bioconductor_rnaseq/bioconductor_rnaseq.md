@@ -31,9 +31,10 @@ In the examples below, `$` indicates the command line prompt within the containe
 |  Rubric        | Points | 
 |----------------|-------|
 | Screencast     |  -/50  |
+| Results          |  -/20 |
 | Plots          |  -/50 |
-| On Time        |  -/30  |
-*Total Points: -/130*
+| On Time        |  -/20  |
+*Total Points: -/140*
 
 ## Getting Started
 
