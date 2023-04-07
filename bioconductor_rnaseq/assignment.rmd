@@ -1,0 +1,77 @@
+---
+title: "rnaseq_tutorial"
+author: "Dominick J. Lemas"
+date: "2023-04-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Figure 4.2.1  Poisson counts with a range of lambda from 0.1 to 100. 
+
+![](meanSdPlot_v1.png)
+
+
+
+#### Figure 4.2.2  Poisson counts with logarithm-transformation.  
+
+![](meanSdPlot_v2.png)
+
+#### Figure 4.2.3  Scatterplot of transformed counts from two samples.  
+
+![](ggplot_v1.png)
+
+#### Figure 4.3.1  Heatmap of sample-to-sample distances using the variance stabilizing transformed values.
+![](pheatmap_v1.png)
+
+#### Figure 4.3.2  Heatmap of sample-to-sample distances using the Poisson Distance.
+
+
+![](pheatmap_v2.png)
+
+#### Figure 4.4.1  PCA plot using the VST data.
+
+![](pcaplot_v1.png)
+
+#### Figure 4.4.2  PCA plot using the VST values with custom ggplot2 code.
+
+![](ggplot_v2.png)
+
+#### Figure 4.5.1  PCA plot using Generalized PCA.
+
+![](ggplot_v3.png)
+
+
+#### Figure 5  PCA plot using Generalized PCA.
+
+![](ggplot_v4.png)
+
+
+
+#### __Figure: __
+![](ggplot_v6.png)
+
+#### __Figure: __
+![](ggplot_v7.png)
+
+#### __Figure: __
+![](plotMA_v2.png)
+#### __Figure: __
+![](plotMA_v3.png)
+
+#### __Figure: __
+![](hist_v1.png)
+
+#### __Figure: __
+![](pheatmap_v3.png)
+
+#### __Figure: __
+![](barplot_v1.png)
+
+#### __Figure: __
+![](ggplot_v8.png)
+
+#### __Figure: __
+![](plotTracks_v1.png)
