@@ -16,9 +16,8 @@ This assignment walks you through modifying an [bioconductor docker images](http
 
 
 ### Prerequisites
-* create an asciinema account using email at [asccinema.org](https://asciinema.org/login/new) 
 * create a [dockerhub account](https://hub.docker.com/)
-* navigate to the directory: ~/assignments/bioconductor_asciinema
+* navigate to the directory: ~/path/to/directory/with/dockerfile/
 <!-- blank line -->
 ----
 <!-- blank line -->
