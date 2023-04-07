@@ -7,10 +7,7 @@ This assignment walks you through modifying an [bioconductor docker images](http
 <!-- blank line -->
 
 ## Learning Objectives:
- - pull a [bioconductor docker image](https://hub.docker.com/r/bioconductor/bioconductor_docker) from DockerHub
- - run the bioconductor/bioconductor_docker container via docker
- - install asciinema via CLI
- - save changes to a new docker image
+ - build a [bioconductor docker image](https://hub.docker.com/r/bioconductor/bioconductor_docker) from a dockerfile
  - push the new docker image to dockerhub
  
   ## Assignment 
