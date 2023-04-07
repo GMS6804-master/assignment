@@ -25,9 +25,9 @@ This assignment walks you through modifying an [bioconductor docker images](http
  ### Assignment Points
 |  Rubric        | Points | 
 |----------------|-------|
-| Dockerhub     |  -/5  |
-| On Time        |  -/5  |
-*Total Points: -/10*
+| Dockerhub     |  -/50  |
+| On Time        |  -/20  |
+*Total Points: -/70*
 
 ## Getting Started
 
