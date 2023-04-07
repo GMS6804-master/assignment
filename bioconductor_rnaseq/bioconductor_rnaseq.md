@@ -121,3 +121,12 @@ png(filename = "Figure_4.2.1.png");
 meanSdPlot(cts, ranks = FALSE);
 dev.off()
 ```
+### 9. stop your screen-cast recording 
+
+***CTRL+D*** or ***CTRL+C*** to stop recording
+***ENTER*** or ***CTRL+C*** to stop recording
+
+![asciinema_auth](https://github.com/GMS6804-master/assignment/blob/main/images/asciinema_stop.png)
+<!-- blank line -->
+----
+<!-- blank line -->
