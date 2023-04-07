@@ -1,4 +1,4 @@
-# bioconductor_rnaseq: RNA-seq workflow: gene-level exploratory analysis and differential expression
+## RNA-seq workflow: gene-level exploratory analysis and differential expression
 
 In this tutorial, we use a [bioconductor docker image](https://www.bioconductor.org/help/docker/) that includes [asciinema](https://asciinema.org/) functionality to run the [RNA-seq tutorial](https://www.bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html). Here we walk through an end-to-end gene-level RNA-seq differential expression workflow using Bioconductor packages. We will start from the FASTQ files, show how these were quantified to the reference transcripts, and prepare gene-level count datasets for downstream analysis. We will perform exploratory data analysis (EDA) for quality assessment and to explore the relationship between samples, perform differential gene expression analysis, and visually explore the results.
 
@@ -20,7 +20,7 @@ In the examples below, `$` indicates the command line prompt within the containe
 
 ### Prerequisites
 * create an asciinema account using email at [asccinema.org](https://asciinema.org/login/new) 
-* navigate to the directory: ~/assignments/bioconductor_asciinema
+* navigate to the your project directory: ~/path/to/project/
 <!-- blank line -->
 ----
 <!-- blank line -->
@@ -29,6 +29,7 @@ In the examples below, `$` indicates the command line prompt within the containe
 |  Rubric        | Points | 
 |----------------|-------|
 | Screencast     |  -/5  |
+| Plots          |  -/50 |
 | On Time        |  -/5  |
 *Total Points: -/10*
 
@@ -43,16 +44,15 @@ In the examples below, `$` indicates the command line prompt within the containe
 
 ### 2. pull a docker image from DockerHub
 ```
-docker pull dominicklemas/bioconductor_rnaseq:04_2023
+docker pull [YOUR DOCKERHUB ID]/bioconductor_rnaseq:[month_year]
 ```
 
-## 3. boot into container as bash while also mounting a "dropbox-style" directory that will link your docker container to your local machine
+### 3. boot into container as bash while also mounting a "dropbox-style" directory that will link your docker container to your local machine
 ```
 docker run -it -v [path-to-working-directory]:/projeect dominicklemas/bioconductor_rnaseq:04_2023 bash
 ```
 As an example: 
 ```
-
 docker run -it -v C:/Users/djlemas/OneDrive/Documents/rna-seq:/project dominicklemas/bioconductor_rnaseq:04_2023 bash
 ```
 <!-- blank line -->
@@ -79,10 +79,15 @@ asciinema rec
 ----
 <!-- blank line -->
 
-### 6. start R, and begin the tutorial at 2.3 Reading in data with tximeta
+### 6. start R, 
 ```
 R
+```
 
+### 7. Begin the tutorial at 2.3 Reading in data with tximeta
+
+First 7 lines of code:
+```
 library("airway")
 dir <- system.file("extdata", package="airway", mustWork=TRUE)
 list.files(dir)
@@ -90,19 +95,8 @@ list.files(file.path(dir, "quants"))
 csvfile <- file.path(dir, "sample_table.csv")
 coldata <- read.csv(csvfile, row.names=1, stringsAsFactors=FALSE)
 coldata
-coldata <- coldata[1:2,]
-coldata$names <- coldata$Run
-coldata$files <- file.path(dir, "quants", coldata$names, "quant.sf.gz")
-file.exists(coldata$files)
-library("tximeta")
-se <- tximeta(coldata)
-dim(se)
-head(rownames(se))
-gse <- summarizeToGene(se)
-dim(gse)
-head(rownames(gse))
-
 ```
+run through each line of code.  
 <!-- blank line -->
 ----
 <!-- blank line -->

@@ -13,65 +13,86 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### Figure 4.2.1  Poisson counts with a range of lambda from 0.1 to 100. 
 
-![](meanSdPlot_v1.png)
+![](Figure_4.2.1.png)
 
 #### Figure 4.2.2  Poisson counts with logarithm-transformation.  
 
-![](meanSdPlot_v2.png)
+![](Figure_4.2.2.png)
 
 #### Figure 4.2.3  Scatterplot of transformed counts from two samples.  
 
-![](ggplot_v1.png)
+![](Figure_4.2.3.png)
 
 #### Figure 4.3.1  Heatmap of sample-to-sample distances using the variance stabilizing transformed values.
-![](pheatmap_v1.png)
+![](Figure_4.3.1.png)
 
 #### Figure 4.3.2  Heatmap of sample-to-sample distances using the Poisson Distance.
 
-
-![](pheatmap_v2.png)
+![](Figure_4.3.2.png)
 
 #### Figure 4.4.1  PCA plot using the VST data.
 
-![](pcaplot_v1.png)
+![](Figure_4.4.1.png)
 
 #### Figure 4.4.2  PCA plot using the VST values with custom ggplot2 code.
 
-![](ggplot_v2.png)
+![](Figure_4.4.2.png)
 
 #### Figure 4.5.1  PCA plot using Generalized PCA.
 
-![](ggplot_v3.png)
+![](Figure_4.5.1.png)
+
+#### Figure 4.6.1  MDS plot using VST data..
+
+![](Figure_4.6.1.png)
+
+#### Figure 4.6.2  MDS plot using the Poisson Distance.
+
+![](Figure_4.6.2.png)
 
 # 6 Plotting results
 
 #### Figure 6.1.1  Normalized counts for a single gene over treatment group.
 
-![](ggplot_v6.png)
+![](Figure_6.1.1.png)
 
-#### Figure 6.1.2  Normalized counts with lines connecting cell lines.
-![](ggplot_v7.png)
+#### Figure 6.1.2  Normalized counts with lines connecting cell lines- custom ggplot.
+![](Figure_6.1.2.png)
+#### Figure 6.1.3  Normalized counts with lines connecting cell lines.
+![](Figure_6.1.3.png)
 
 #### Figure 6.2.1 An MA-plot of changes induced by treatment.
-![](plotMA_v3.png)
+![](Figure_6.2.1.png)
 
-#### Figure 6.2.2 An MA-plot of changes induced by treatment- custom.
-![](plotMA_v2.png)
+#### Figure 6.2.2 An MA-plot of changes induced by treatment- trim
+![](Figure_6.2.2.png)
 
-#### Figure 6.2.3 Histogram of p values for genes with mean normalized count larger than 1. 
-![](hist_v1.png)
+#### Figure 6.2.3 An MA-plot of changes induced by treatment- labeled. 
+![](Figure_6.2.3.png)
+#### Figure 6.2.4 Histogram of p values for genes with mean normalized count larger than 1
+![](Figure_6.2.4.png)
 
 #### Figure 6.3.1  Heatmap of relative VST-transformed values across samples.
 
-![](ggplot_v4.png)
+![](Figure_6.3.1.png)
 
 #### Figure 6.4.1 The ratio of small p values for genes binned by mean normalized count.
-![](barplot_v1.png)
+![](Figure_6.4.1.png)
 
 # 7 Annotating and exporting results
 
+#### Figure 7.2.1 log2 fold changes in genomic region surrounding the gene with smallest adjusted p value..
+![](Figure_7.2.1.png)
+
+#### Figure 8.1.1 Surrogate variables 1 and 2 plotted over cell line..
+![](Figure_8.1.1.png)
+
+#### Figure 8.1.2 Factors of unwanted variation plotted over cell line.
+![](Figure_8.1.2.png)
+# 9 Time course experiments
+
 #### Figure 9.1.1 Normalized counts for a gene with condition-specific changes over time.
-![](ggplot_v8.png)
+![](Figure_9.1.1.png)
 
 #### Figure 9.1.2 Heatmap of log2 fold changes for genes with smallest adjusted p value.
-![](plotTracks_v1.png)
+![](Figure_9.1.2.png)
