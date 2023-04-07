@@ -102,7 +102,8 @@ continue through the rest of the tutorial.
 
 ### 8. Exporting Figures
 
-Exporting figures via command-line requires a few more R functions. Note- the example below has a function called png(file="file_name.png") that comes before the plotting function and the dev.off() directly after the plotting function. 
+Exporting figures via command-line requires a few more R functions. 
+Note- the example below has a function called png(file="file_name.png") that comes before the plotting function and the dev.off() directly after the plotting function. 
 
 ```
 # 4 Exploratory analysis and visualization
