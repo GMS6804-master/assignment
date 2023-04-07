@@ -9,11 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# 4 Exploratory analysis and visualization
+
 #### Figure 4.2.1  Poisson counts with a range of lambda from 0.1 to 100. 
 
 ![](meanSdPlot_v1.png)
-
-
 
 #### Figure 4.2.2  Poisson counts with logarithm-transformation.  
 
@@ -43,35 +43,35 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ![](ggplot_v3.png)
 
+# 6 Plotting results
 
-#### Figure 5  PCA plot using Generalized PCA.
+#### Figure 6.1.1  Normalized counts for a single gene over treatment group.
+
+![](ggplot_v6.png)
+
+#### Figure 6.1.2  Normalized counts with lines connecting cell lines.
+![](ggplot_v7.png)
+
+#### Figure 6.2.1 An MA-plot of changes induced by treatment.
+![](plotMA_v3.png)
+
+#### Figure 6.2.2 An MA-plot of changes induced by treatment- custom.
+![](plotMA_v2.png)
+
+#### Figure 6.2.3 Histogram of p values for genes with mean normalized count larger than 1. 
+![](hist_v1.png)
+
+#### Figure 6.3.1  Heatmap of relative VST-transformed values across samples.
 
 ![](ggplot_v4.png)
 
-
-
-#### __Figure: __
-![](ggplot_v6.png)
-
-#### __Figure: __
-![](ggplot_v7.png)
-
-#### __Figure: __
-![](plotMA_v2.png)
-#### __Figure: __
-![](plotMA_v3.png)
-
-#### __Figure: __
-![](hist_v1.png)
-
-#### __Figure: __
-![](pheatmap_v3.png)
-
-#### __Figure: __
+#### Figure 6.4.1 The ratio of small p values for genes binned by mean normalized count.
 ![](barplot_v1.png)
 
-#### __Figure: __
+# 7 Annotating and exporting results
+
+#### Figure 9.1.1 Normalized counts for a gene with condition-specific changes over time.
 ![](ggplot_v8.png)
 
-#### __Figure: __
+#### Figure 9.1.2 Heatmap of log2 fold changes for genes with smallest adjusted p value.
 ![](plotTracks_v1.png)
