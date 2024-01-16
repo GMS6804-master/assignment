@@ -45,15 +45,25 @@ docker pull dominicklemas/rbase_asciinema:12_2021
 ----
 <!-- blank line -->
 
-### 3.  create a docker container and start screen-cast recording
+### 3.  create a docker container 
+
 ```
-docker run -it dominicklemas/rbase_asciinema:12_2021 rec
+docker run -it dominicklemas/rbase_asciinema:12_2021 bash
 ```
 <!-- blank line -->
 ----
 <!-- blank line -->
 
-### 4. link your container to your asciinema.org account by opening the URL in a web browser 
+### 4. start a screen recording session
+
+```
+asciinema rec
+```
+<!-- blank line -->
+----
+<!-- blank line -->
+
+### 5. link your container to your asciinema.org account by opening the URL in a web browser 
 ```
 asciinema auth
 ```
