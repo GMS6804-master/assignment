@@ -47,7 +47,7 @@ docker pull dominicklemas/rbase_asciinema:12_2021
 
 ### 3.  create a docker container and start screen-cast recording
 ```
-docker run -it asciinema/asciinema rec
+docker run -it dominicklemas/rbase_asciinema:12_2021 rec
 ```
 <!-- blank line -->
 ----
