@@ -39,7 +39,7 @@ This assignment walks you through creating a screen-cast via asciinema and docke
 ### 2. pull the docker image
 
 ```
-docker pull asciinema/asciinema
+docker pull dominicklemas/rbase_asciinema:12_2021
 ```
 <!-- blank line -->
 ----
